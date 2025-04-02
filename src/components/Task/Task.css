@@ -1,0 +1,13 @@
+.task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1px black solid;
+    margin-top: 6px;
+}
+
+.buttons-container {
+    margin-right: 4px;
+}

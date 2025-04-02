@@ -23,6 +23,7 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 16px #00000033; /* L-T, R-T, R-B, L-B*/
+    width: 25vw;
 }  
 
 /* Switch color animation */
