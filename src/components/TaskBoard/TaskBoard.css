@@ -1,0 +1,17 @@
+.task-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 4px;
+    margin: 8px;
+    border: 1px black solid;
+    font-family: "Work Sans", sans-serif;
+}
+
+.task-title {
+    font-family: "Afacad", sans-serif;
+}
