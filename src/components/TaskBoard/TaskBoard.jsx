@@ -1,6 +1,6 @@
 import './TaskBoard.css'
 import Task from '../Task/Task'
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect } from 'react'
 
 export const TaskBoard = () => {
     const [task, setTask] = useState('')
