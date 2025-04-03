@@ -1,12 +1,13 @@
 import './Task.css'
 
-export const Task = () => {
+export const Task = ({ taskId, task, handleDelete, handleDone }) => {
+    console.log(taskId)
     return(
     <div className="task-container">
-        <p>Texto da tarefa</p>
+        <p>{task}</p>
         <div className="buttons-container">
-            <button>Excluir</button>
-            <button>Concluir</button>
+            <button onClick={() => handleDelete(taskId)}>Excluir</button>
+            <button onClick={() => handleDone(taskId)}>Concluir</button>
         </div>
     </div>
     )
