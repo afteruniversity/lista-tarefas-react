@@ -12,7 +12,7 @@ export const TaskBoard = () => {
   const [finishedTasks, setFinishedTasks] = useState([]);
 
   const handleTaskSubmit = (event) => {
-    event.preventDefault(); // previne o comportamento padrão do navegador de lidar com envio de formulários
+    event.preventDefault();
     if (task.trim() === "") {
       toast.warn("Por favor, insira uma tarefa válida.");
       return;
@@ -23,25 +23,24 @@ export const TaskBoard = () => {
   };
 
   const handleDelete = (taskIdToDelete) => {
-    // Filtra a lista e remove a tarefa com o Id passado
     const taskText = tasksList[taskIdToDelete];
-    // Esse (_, index) esquisito so quer dizer que tamo ignorando o primeiro parametro recebido
     setTasksList((prevTasks) =>
-      prevTasks.filter((taskText, index) => index !== taskIdToDelete)
+      prevTasks.filter((_, index) => index !== taskIdToDelete)
     );
     toast.success(`Tarefa "${taskText}" deletada com sucesso!`);
   };
 
-  const handleDeleteFinishedTask = (taskIdToDelete) => {
-    // Filtra a lista e remove a tarefa com o Id passado
+  // Atualizada para receber o texto da tarefa
+  const handleDeleteFinishedTask = (taskIdToDelete, taskText) => {
     setFinishedTasks((prevTasks) =>
       prevTasks.filter((_, index) => index !== taskIdToDelete)
     );
+    toast.success(`Tarefa "${taskText}" concluída!`);
   };
 
   const handleDone = (finishedTaskId) => {
-    const currentDate = new Date(); // p pegar a data de qnd a tarefa foi feita
-    const formattedDate = currentDate.toLocaleString(); // transforma em string
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleString();
     const finishedTaskText = tasksList[finishedTaskId];
 
     setTasksList((prevTasks) =>
@@ -56,11 +55,13 @@ export const TaskBoard = () => {
   return (
     <div className="task-board">
       <h1 className="task-title">Lista de Tarefas</h1>
+
       <TaskInsertForm
         handleTaskSubmit={handleTaskSubmit}
         task={task}
         setTask={setTask}
       />
+
       {tasksList.map((taskInstance, index) => (
         <Task
           key={index}
@@ -70,15 +71,19 @@ export const TaskBoard = () => {
           handleDone={handleDone}
         />
       ))}
+
       {finishedTasks.map((finishedTask, index) => (
         <FinishedTask
           key={index}
           id={finishedTask.id}
           text={finishedTask.text}
           date={finishedTask.date}
-          handleDeleteFinishedTask={handleDeleteFinishedTask}
+          handleDeleteFinishedTask={() =>
+            handleDeleteFinishedTask(index, finishedTask.text)
+          }
         />
       ))}
+
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -89,7 +94,7 @@ export const TaskBoard = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
       />
     </div>
   );
