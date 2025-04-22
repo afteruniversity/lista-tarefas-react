@@ -4,14 +4,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border: 1px black solid;
+    border-radius: 10px;
     margin-top: 6px;
 }
 
-.buttons-container {
-    margin-right: 4px;
-}
-
-p {
-    font-family: "Work Sans", sans-serif;
+.buttons-container button {
+    margin: 2px;
 }
