@@ -12,4 +12,4 @@ export const Task = ({ taskId, task, handleDelete, handleDone }) => {
     )
 }
 
-export default Task
+export default Task;
