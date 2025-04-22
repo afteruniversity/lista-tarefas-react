@@ -17,4 +17,5 @@
   
   <b>1.</b> Instale o <b>node.js</b> instalado e use o comando ```node -v``` no terminal para verificar se está instalado e atualizado; <br><br>
   <b>2.</b> Insira o comando ```npm install``` para instalar as dependências do projeto; <br><br>
+  <b>3.</b> Insira o comando ```npm install react-toastify``` para instalar a biblioteca de pop-ups; <br><br>
   <b>3.</b> E por fim, utilize o comando ```npm run dev``` para inicializar o projeto e executá-lo em sua máquina local.
